@@ -1,0 +1,20 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Lte Router Serial Importer";
+  
+}
+
+<h2>Lte Router Serial Importer</h2>
+
+@using (Html.BeginForm("LteRouterImport",
+                        "ImportItems",
+                        FormMethod.Post,
+                        new { enctype = "multipart/form-data" }))
+{
+    <label for="file">Upload Lte-Router xlx File:</label>
+    <input type="file" name="file" id="file" /><br><br>
+    <input type="submit" value="Upload File" />
+    <br><br>
+    @ViewBag.Message
+}
