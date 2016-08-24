@@ -176,6 +176,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImportItemsController.cs" />
+    <Compile Include="Controllers\ViewItemsController.cs" />
     <Compile Include="Core\BLL\ImportManager.cs" />
     <Compile Include="Core\Gateway\ImportGateway.cs" />
     <Compile Include="Global.asax.cs">
@@ -257,6 +258,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="VendorFiles\" />
+    <Folder Include="Views\ViewItems\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

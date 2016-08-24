@@ -14,7 +14,7 @@ namespace Ollo_InventorySystem.Core.BLL
         ImportGateway importGateway = new ImportGateway();
         public bool ReadExcelFile(string fileFullPath)
         {
-            string LongQueryString = "INSERT INTO LteRouter ( ItemCode, ItemDescription, Batch , Tag , Serial , Mac , Imei ) VALUES ";
+            string LongQueryString = "INSERT INTO LteRouter ( ItemCode, ItemDescription, Batch , Tag , Serial , Mac , Imei,ImportTime ) VALUES ";
             
             int isDataAdded = 0;
             if (fileFullPath != "")
@@ -28,8 +28,9 @@ namespace Ollo_InventorySystem.Core.BLL
                 DataSet result = excelReader.AsDataSet();
                 foreach (DataRow row in result.Tables["Sheet1"].Rows)
                 {
-                    string Item_code, Item_description,Batch,Tag_no,Serial_no,Mac_id,Imei_code;
-                    Item_code = Item_description = Batch = Tag_no = Serial_no = Mac_id = Imei_code = "";
+                    string Item_code, Item_description, Batch, Tag_no, Serial_no, Mac_id, Imei_code, ImportTime;
+                     
+                    Item_code = Item_description = Batch = Tag_no = Serial_no = Mac_id = Imei_code =ImportTime= "";
                     if ((!string.IsNullOrEmpty(row["Item-Code"].ToString())) & (!string.IsNullOrEmpty(row["Item-Description"].ToString())) & (!string.IsNullOrEmpty(row["Batch"].ToString())) & (!string.IsNullOrEmpty(row["Tag-No"].ToString())) & (!string.IsNullOrEmpty(row["Serial-No"].ToString())) & (!string.IsNullOrEmpty(row["MAC-ID"].ToString())) & (!string.IsNullOrEmpty(row["IMEI-Code"].ToString())) )
                     {
                         Item_code = "'" + row["Item-Code"].ToString() + "'";
@@ -39,7 +40,7 @@ namespace Ollo_InventorySystem.Core.BLL
                         Serial_no = "'" + row["Serial-No"].ToString() + "'";
                         Mac_id = "'" + row["MAC-ID"].ToString() + "'";
                         Imei_code = "'" + row["IMEI-Code"].ToString() + "'";
-                        
+                        ImportTime =  "'" + DateTime.Now + "'";
                     }
 
 
@@ -49,6 +50,7 @@ namespace Ollo_InventorySystem.Core.BLL
                                       "," + Serial_no +
                                       "," + Mac_id +
                                       "," + Imei_code +
+                                      "," + ImportTime +
                                       " ),";
 
 
