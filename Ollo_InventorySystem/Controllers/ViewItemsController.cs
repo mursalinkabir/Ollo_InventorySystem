@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Ollo_InventorySystem.Core.BLL;
+using Ollo_InventorySystem.Models;
 
 
 namespace Ollo_InventorySystem.Controllers
@@ -22,6 +23,13 @@ namespace Ollo_InventorySystem.Controllers
         {
             ViewBag.LteRouters = viewManager.GetAllLteRouters();
             return View();
+        }
+
+        public ActionResult EditLteRouter(double Id)
+        {
+            LteRouter lteRouter = new LteRouter();
+            lteRouter = viewManager.GetLteRouterById(Id);
+            return View(lteRouter);
         }
     }
 }

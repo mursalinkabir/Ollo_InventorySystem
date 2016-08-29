@@ -14,5 +14,10 @@ namespace Ollo_InventorySystem.Core.BLL
         {
             return viewGateway.GetAllLteRouters();
         }
+
+        public LteRouter GetLteRouterById(double Id)
+        {
+            return viewGateway.GetLteRouterById(Id);
+        }
     }
 }

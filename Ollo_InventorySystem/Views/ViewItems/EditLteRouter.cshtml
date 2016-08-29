@@ -1,0 +1,68 @@
+﻿@model Ollo_InventorySystem.Models.LteRouter
+
+@{
+    ViewBag.Title = "title";
+    var lteRouterInfo = ViewBag.LteRouterInfo;
+}
+
+<h2>Edit Router Info</h2>
+
+<div>
+    @using (Html.BeginForm())
+    {
+        <fieldset>
+            <legend>Edit Lte Router</legend>
+            <table>
+                <tr>
+                    <td>@Html.LabelFor(m => m.ItemCode)</td>
+                    <td>
+                        @Html.TextBoxFor(m => m.ItemCode)
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Batch)</td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Batch)
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Imei)</td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Imei)
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.ItemDescription)</td>
+                    <td>
+                        @Html.TextBoxFor(m => m.ItemDescription)
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.MacId)</td>
+                    <td>
+                        @Html.TextBoxFor(m => m.MacId)
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.SerialNo)</td>
+                    <td>
+                        @Html.TextBoxFor(m => m.SerialNo)
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.TagNo)</td>
+                    <td>
+                        @Html.TextBoxFor(m => m.TagNo)
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Update" />
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        
+    }
+</div>

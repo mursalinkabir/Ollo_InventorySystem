@@ -257,6 +257,7 @@
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <None Include="Views\ImportItems\LteRouterImport.cshtml" />
+    <None Include="Views\ViewItems\EditLteRouter.cshtml" />
     <None Include="Views\ViewItems\ViewLteRouters.cshtml" />
   </ItemGroup>
   <ItemGroup>
