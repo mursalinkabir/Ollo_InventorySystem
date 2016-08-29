@@ -178,12 +178,15 @@
     <Compile Include="Controllers\ImportItemsController.cs" />
     <Compile Include="Controllers\ViewItemsController.cs" />
     <Compile Include="Core\BLL\ImportManager.cs" />
+    <Compile Include="Core\BLL\ViewManager.cs" />
     <Compile Include="Core\Gateway\ImportGateway.cs" />
+    <Compile Include="Core\Gateway\ViewGateway.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LteRouter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -254,11 +257,11 @@
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <None Include="Views\ImportItems\LteRouterImport.cshtml" />
+    <None Include="Views\ViewItems\ViewLteRouters.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="VendorFiles\" />
-    <Folder Include="Views\ViewItems\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
