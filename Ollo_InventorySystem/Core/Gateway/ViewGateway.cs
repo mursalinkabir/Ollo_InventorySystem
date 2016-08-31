@@ -32,9 +32,9 @@ namespace Ollo_InventorySystem.Core.Gateway
                 lteRouter.ItemCode = reader["ItemCode"].ToString();
                 lteRouter.ItemDescription = reader["ItemDescription"].ToString();
                 lteRouter.Batch = reader["Batch"].ToString();
-                lteRouter.TagNo = reader["Tag"].ToString();
-                lteRouter.SerialNo = reader["Serial"].ToString();
-                lteRouter.MacId = reader["Mac"].ToString();
+                lteRouter.Tag = reader["Tag"].ToString();
+                lteRouter.Serial = reader["Serial"].ToString();
+                lteRouter.Mac = reader["Mac"].ToString();
                 lteRouter.Imei = reader["Imei"].ToString();
                 
                 LteRouterList.Add(lteRouter);
@@ -66,9 +66,9 @@ namespace Ollo_InventorySystem.Core.Gateway
                 lteRouter.ItemCode = reader["ItemCode"].ToString();
                 lteRouter.ItemDescription = reader["ItemDescription"].ToString();
                 lteRouter.Batch = reader["Batch"].ToString();
-                lteRouter.TagNo = reader["Tag"].ToString();
-                lteRouter.SerialNo = reader["Serial"].ToString();
-                lteRouter.MacId = reader["Mac"].ToString();
+                lteRouter.Tag = reader["Tag"].ToString();
+                lteRouter.Serial = reader["Serial"].ToString();
+                lteRouter.Mac = reader["Mac"].ToString();
                 lteRouter.Imei = reader["Imei"].ToString();
 
                 
@@ -76,6 +76,45 @@ namespace Ollo_InventorySystem.Core.Gateway
             reader.Close();
             connection.Close();
             return lteRouter;
+        }
+
+        public int ModifyLteRouterInfo(LteRouter lterouter)
+        {
+            connection.ConnectionString = connectionString;
+            string query = "UPDATE LteRouter SET ItemCode=@ItemCode,Batch=@Batch,Imei=@Imei,ItemDescription=@ItemDescription,Mac=@Mac,Serial=@Serial,Tag=@Tag   WHERE Id=@Id";
+
+
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = query;
+            command.Connection = connection;
+            command.Parameters.Add("Id", SqlDbType.BigInt);
+            command.Parameters["Id"].Value = lterouter.Id;
+
+            command.Parameters.Add("ItemCode", SqlDbType.NVarChar);
+            command.Parameters["ItemCode"].Value = lterouter.ItemCode;
+
+            command.Parameters.Add("Batch", SqlDbType.NVarChar);
+            command.Parameters["Batch"].Value = lterouter.Batch;
+
+            command.Parameters.Add("Imei", SqlDbType.NVarChar);
+            command.Parameters["Imei"].Value = lterouter.Imei;
+
+            command.Parameters.Add("ItemDescription", SqlDbType.NVarChar);
+            command.Parameters["ItemDescription"].Value = lterouter.ItemDescription;
+
+            command.Parameters.Add("Mac", SqlDbType.NVarChar);
+            command.Parameters["Mac"].Value = lterouter.Mac;
+
+            command.Parameters.Add("Serial", SqlDbType.NVarChar);
+            command.Parameters["Serial"].Value = lterouter.Serial;
+
+            command.Parameters.Add("Tag", SqlDbType.NVarChar);
+            command.Parameters["Tag"].Value = lterouter.Tag;
+            connection.Open();
+            int rowAffected = command.ExecuteNonQuery();
+            connection.Close();
+            return rowAffected;
         }
     }
 }

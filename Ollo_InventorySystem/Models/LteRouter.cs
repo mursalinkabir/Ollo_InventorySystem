@@ -11,9 +11,9 @@ namespace Ollo_InventorySystem.Models
         public string ItemCode { get; set; }
         public string ItemDescription { get; set; }
         public string Batch { get; set; }
-        public string TagNo { get; set; }
-        public string SerialNo { get; set; }
-        public string MacId { get; set; }
+        public string Tag { get; set; }
+        public string Serial { get; set; }
+        public string Mac { get; set; }
         public string Imei { get; set; }
     }
 }

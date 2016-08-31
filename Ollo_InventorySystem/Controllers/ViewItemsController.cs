@@ -31,5 +31,12 @@ namespace Ollo_InventorySystem.Controllers
             lteRouter = viewManager.GetLteRouterById(Id);
             return View(lteRouter);
         }
+
+        [HttpPost]
+        public ActionResult EditLteRouter(LteRouter lterouter)
+        {
+            ViewBag.Message = viewManager.ModifyLteRouterInfo(lterouter);
+            return View();
+        }
     }
 }

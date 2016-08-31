@@ -31,8 +31,8 @@ namespace Ollo_InventorySystem.Core.BLL
                     string Item_code, Item_description, Batch, Tag_no, Serial_no, Mac_id, Imei_code, ImportTime;
                      
                     Item_code = Item_description = Batch = Tag_no = Serial_no = Mac_id = Imei_code =ImportTime= "";
-                    if ((!string.IsNullOrEmpty(row["Item-Code"].ToString())) & (!string.IsNullOrEmpty(row["Item-Description"].ToString())) & (!string.IsNullOrEmpty(row["Batch"].ToString())) & (!string.IsNullOrEmpty(row["Tag-No"].ToString())) & (!string.IsNullOrEmpty(row["Serial-No"].ToString())) & (!string.IsNullOrEmpty(row["MAC-ID"].ToString())) & (!string.IsNullOrEmpty(row["IMEI-Code"].ToString())) )
-                    {
+                    //if ((!string.IsNullOrEmpty(row["Item-Code"].ToString())) & (!string.IsNullOrEmpty(row["Item-Description"].ToString())) & (!string.IsNullOrEmpty(row["Batch"].ToString())) & (!string.IsNullOrEmpty(row["Tag-No"].ToString())) & (!string.IsNullOrEmpty(row["Serial-No"].ToString())) & (!string.IsNullOrEmpty(row["MAC-ID"].ToString())) & (!string.IsNullOrEmpty(row["IMEI-Code"].ToString())) )
+                    //{
                         Item_code = "'" + row["Item-Code"].ToString() + "'";
                         Item_description = "'" + row["Item-Description"].ToString() +"'";
                         Batch = "'" + row["Batch"].ToString() + "'";
@@ -41,7 +41,7 @@ namespace Ollo_InventorySystem.Core.BLL
                         Mac_id = "'" + row["MAC-ID"].ToString() + "'";
                         Imei_code = "'" + row["IMEI-Code"].ToString() + "'";
                         ImportTime =  "'" + DateTime.Now + "'";
-                    }
+                    
 
 
                     LongQueryString = LongQueryString + "( " + Item_code + "," + Item_description +

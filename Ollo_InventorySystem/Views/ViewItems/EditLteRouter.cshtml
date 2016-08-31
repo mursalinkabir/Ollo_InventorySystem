@@ -13,6 +13,7 @@
         <fieldset>
             <legend>Edit Lte Router</legend>
             <table>
+                
                 <tr>
                     <td>@Html.LabelFor(m => m.ItemCode)</td>
                     <td>
@@ -38,29 +39,33 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>@Html.LabelFor(m => m.MacId)</td>
+                    <td>@Html.LabelFor(m => m.Mac)</td>
                     <td>
-                        @Html.TextBoxFor(m => m.MacId)
+                        @Html.TextBoxFor(m => m.Mac)
                     </td>
                 </tr>
                 <tr>
-                    <td>@Html.LabelFor(m => m.SerialNo)</td>
+                    <td>@Html.LabelFor(m => m.Serial)</td>
                     <td>
-                        @Html.TextBoxFor(m => m.SerialNo)
+                        @Html.TextBoxFor(m => m.Serial)
                     </td>
                 </tr>
                 <tr>
-                    <td>@Html.LabelFor(m => m.TagNo)</td>
+                    <td>@Html.LabelFor(m => m.Tag)</td>
                     <td>
-                        @Html.TextBoxFor(m => m.TagNo)
+                        @Html.TextBoxFor(m => m.Tag)
                     </td>
+                </tr>
+                <tr>
+                    <td>@Html.HiddenFor(m=>m.Id)</td>
                 </tr>
                 <tr>
                     <td></td>
                     <td>
-                        <input type="submit" value="Update" />
+                        <input type="submit" value="Update"/>
                     </td>
                 </tr>
+                <tr><td>@ViewBag.Message</td></tr>
             </table>
         </fieldset>
         

@@ -12,8 +12,8 @@
 
     <fieldset>
         <legend> Lte Routers</legend>
-        <table>
-            <tr><th bgcolor="e0e0d1">ItemCode     </th><th bgcolor="e0e0d1"> ItemDescription</th><th bgcolor="e0e0d1">Batch</th><th bgcolor="e0e0d1">TagNo</th><th bgcolor="e0e0d1">SerialNo</th><th bgcolor="e0e0d1">MacId</th><th bgcolor="e0e0d1">Imei</th><th bgcolor="e0e0d1">EDIT</th></tr>
+        <table class="viewlists">
+            <tr><th >Item-Code     </th><th > Description</th><th >Batch</th><th >Tag</th><th >Serial</th><th >Mac</th><th >Imei</th><th >EDIT</th></tr>
             @{
                 foreach (var router in LteRouters)
                 {
@@ -21,11 +21,11 @@
                         <td>@router.ItemCode</td>
                         <td>@router.ItemDescription</td>
                         <td>@router.Batch</td>
-                        <td>@router.TagNo</td>
-                        <td>@router.SerialNo</td>
-                        <td>@router.MacId</td>
+                        <td>@router.Tag</td>
+                        <td>@router.Serial</td>
+                        <td>@router.Mac</td>
                         <td>@router.Imei</td>
-                        <td>@Html.ActionLink("Edit","EditLteRouter",new {id=router.Id})</td>
+                        <td>@Html.ActionLink("Edit", "EditLteRouter", new { id = router.Id })</td>
                     </tr>
                 }
             }
