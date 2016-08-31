@@ -47,3 +47,6 @@ textarea {
 .navbar-inverse .navbar-brand:hover {
     color: wheat;
 }
+.navbar-inverse a {
+    text-decoration-color: red;
+}

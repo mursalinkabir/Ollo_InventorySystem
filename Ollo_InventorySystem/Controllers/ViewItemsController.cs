@@ -5,7 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using Ollo_InventorySystem.Core.BLL;
 using Ollo_InventorySystem.Models;
-
+using PagedList;
+using PagedList.Mvc;
 
 namespace Ollo_InventorySystem.Controllers
 {
@@ -19,9 +20,13 @@ namespace Ollo_InventorySystem.Controllers
             return View();
         }
 
-        public ActionResult ViewLteRouters()
+        public ActionResult ViewLteRouters(int? page)
         {
-            ViewBag.LteRouters = viewManager.GetAllLteRouters();
+            //ViewBag.LteRouters = viewManager.GetAllLteRouters();
+            var LteRouters = viewManager.GetAllLteRouters();
+            var pageNumber = page ?? 1;
+            var onePageOfProducts = LteRouters.ToPagedList(pageNumber, 25);
+            ViewBag.LteRouters = onePageOfProducts;
             return View();
         }
 

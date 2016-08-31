@@ -5,6 +5,8 @@
     
     var LteRouters = ViewBag.LteRouters;
 }
+@using PagedList.Mvc; 
+@using PagedList;
 
 <h2>View Lte Routers</h2>
 
@@ -13,7 +15,7 @@
     <fieldset>
         <legend> Lte Routers</legend>
         <table class="viewlists">
-            <tr><th >Item-Code     </th><th > Description</th><th >Batch</th><th >Tag</th><th >Serial</th><th >Mac</th><th >Imei</th><th >EDIT</th></tr>
+            <tr><th >Item-Code </th><th > Description</th><th >Batch</th><th >Tag</th><th >Serial</th><th >Mac</th><th >Imei</th><th >EDIT</th></tr>
             @{
                 foreach (var router in LteRouters)
                 {
@@ -25,11 +27,12 @@
                         <td>@router.Serial</td>
                         <td>@router.Mac</td>
                         <td>@router.Imei</td>
-                        <td>@Html.ActionLink("Edit", "EditLteRouter", new { id = router.Id })</td>
+                        <td>@Html.ActionLink("Edit", "EditLteRouter", new {id = router.Id})</td>
                     </tr>
                 }
             }
         </table>
+        @Html.PagedListPager((IPagedList)ViewBag.LteRouters, page => Url.Action("ViewLteRouters", new { page }))
     </fieldset>
 
 
