@@ -12,7 +12,7 @@ namespace Ollo_InventorySystem.Core.Gateway
         private string connectionString =
             WebConfigurationManager.ConnectionStrings["OLLOInventoryDBConnection"].ConnectionString;
         SqlConnection connection = new SqlConnection();
-        public int AddDataintoDB(string finalQueryString)
+        public int AddDataintoDB(string finalQueryString, string finalQueryString2)
         {
             connection.ConnectionString = connectionString;
             string query = finalQueryString;
@@ -20,6 +20,14 @@ namespace Ollo_InventorySystem.Core.Gateway
             connection.Open();
             int rowAffected = command.ExecuteNonQuery();
             connection.Close();
+
+            //for movement table
+            string query2 = finalQueryString2;
+            SqlCommand command2 = new SqlCommand(query2, connection);
+            connection.Open();
+            int rowAffected2 = command2.ExecuteNonQuery();
+            connection.Close();
+
             return rowAffected;
         }
     }
