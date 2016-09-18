@@ -15,5 +15,7 @@ namespace Ollo_InventorySystem.Models
         public string Serial { get; set; }
         public string Mac { get; set; }
         public string Imei { get; set; }
+        public string Location  { get; set; }
+        public string Remarks { get; set; }
     }
 }

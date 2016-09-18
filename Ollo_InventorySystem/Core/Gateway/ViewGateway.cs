@@ -19,7 +19,7 @@ namespace Ollo_InventorySystem.Core.Gateway
         {
           connection.ConnectionString = connectionString;
 
-            string query = "SELECT * FROM LteRouter Order By Id ASC";
+          string query = "SELECT LteRouter.Id,ItemCode,ItemDescription,Batch,Tag,Serial,Mac,Imei,Location,Remarks FROM LteRouter INNER JOIN RouterMovement ON Imei= RouterImei Order By LteRouter.Id DESC";
             SqlCommand command = new SqlCommand(query, connection);
 
             connection.Open();
@@ -36,7 +36,8 @@ namespace Ollo_InventorySystem.Core.Gateway
                 lteRouter.Serial = reader["Serial"].ToString();
                 lteRouter.Mac = reader["Mac"].ToString();
                 lteRouter.Imei = reader["Imei"].ToString();
-                
+                lteRouter.Location = reader["Location"].ToString();
+                lteRouter.Remarks = reader["Remarks"].ToString();
                 LteRouterList.Add(lteRouter);
             }
             reader.Close();
